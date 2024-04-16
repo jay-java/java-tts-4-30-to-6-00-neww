@@ -1,0 +1,17 @@
+package basic;
+class ABC{
+	public void call() {
+		System.out.println("call function");
+	}
+	public void run() {
+		System.out.println("run function");
+	}
+}
+public class P003_UserInput {
+	public static void main(String[] args) {
+		System.out.println("main function");
+		ABC a = new ABC();
+		a.call();
+		a.run();
+	}
+}

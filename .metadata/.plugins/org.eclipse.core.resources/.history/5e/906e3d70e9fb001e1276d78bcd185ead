@@ -1,0 +1,19 @@
+package basic;
+
+//1.assignment-> =,+=,-=,/=,*=
+//2.Arithmetic->+,-,*,/,%
+//3.Conditional-> ==,<,>,<=,>=,!=
+//4.Unary->++,--
+//5.Turnary-> condition ? print : print
+//6.Logical -> &&, || , !
+public class P002_Operators {
+	public static void main(String[] args) {
+		int i = 12;
+		i += 13; // i = i-value
+		System.out.println(i);
+		int a = 12, b = -13;
+		a =+ b;
+		System.out.println(a);
+		System.out.println(a+b);
+	}
+}
