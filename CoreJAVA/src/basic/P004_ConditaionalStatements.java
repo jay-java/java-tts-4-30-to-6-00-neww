@@ -39,6 +39,8 @@ public class P004_ConditaionalStatements {
 		} else {
 			System.out.println("age is less than 18");
 		}
+		
+		//4.else if ladder
 
 		System.out.println("enter marks = ");
 		int m = sc.nextInt();
