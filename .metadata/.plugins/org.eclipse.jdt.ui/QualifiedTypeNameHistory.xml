@@ -4,4 +4,7 @@
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="javax.security.sasl.SaslClient"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="basic.User"/>
+    <fullyQualifiedTypeName name="basic.XYZ"/>
+    <fullyQualifiedTypeName name="basic.ABC"/>
 </qualifiedTypeNameHistroy>

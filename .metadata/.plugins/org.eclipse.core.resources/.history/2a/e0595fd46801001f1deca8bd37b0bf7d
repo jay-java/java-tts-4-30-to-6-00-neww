@@ -1,0 +1,23 @@
+package basic;
+class User{
+	int id;
+	String name;
+	String address;
+	public void setId(int id) {
+		System.out.println("id : "+id);
+	}
+	public void setName(String name) {
+		System.out.println("name : "+name);
+	}
+	public void setAddress(String address) {
+		System.out.println("address : "+address);
+	}
+}
+public class P010_Constructor {
+	public static void main(String[] args) {
+		User u1 = new User();
+		u1.setId(1);
+		u1.setName("java");
+		u1.setAddress(""); 
+	}
+}
