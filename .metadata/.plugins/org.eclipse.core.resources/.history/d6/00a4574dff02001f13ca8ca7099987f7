@@ -1,0 +1,17 @@
+package basic;
+class Calc{
+	int id;
+	String name;
+	static String coll="GLS";
+	public void chagne() {
+//		i++;
+//		System.out.println(i);
+		System.out.println("change fun");
+	}
+}
+public class P015_StaticKeyword {
+	public static void main(String[] args) {
+		Calc c = new Calc();
+		c.chagne();
+	}
+}

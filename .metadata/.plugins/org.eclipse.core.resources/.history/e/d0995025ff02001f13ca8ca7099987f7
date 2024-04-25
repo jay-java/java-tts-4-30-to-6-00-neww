@@ -1,0 +1,14 @@
+package basic;
+class Calc{
+	static int i=1;
+	public void chagne() {
+		i++;
+		System.out.println(i);
+	}
+}
+public class P015_StaticKeyword {
+	public static void main(String[] args) {
+		Calc c = new Calc();
+		c.chagne();
+	}
+}

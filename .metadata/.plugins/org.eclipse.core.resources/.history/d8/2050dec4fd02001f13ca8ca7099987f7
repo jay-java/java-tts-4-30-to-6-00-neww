@@ -1,0 +1,16 @@
+package basic;
+abstract class RBI{
+	public abstract void interest();
+	public abstract void HL();
+}
+class SBI extends RBI{
+	
+}
+class PNB extends RBI{
+	
+}
+public class P014_Abstration {
+	public static void main(String[] args) {
+		
+	}
+}

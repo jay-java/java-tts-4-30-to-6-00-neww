@@ -1,0 +1,7 @@
+package basic;
+
+public class P014_Abstration {
+	public static void main(String[] args) {
+		
+	}
+}
