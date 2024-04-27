@@ -7,4 +7,12 @@
     <fullyQualifiedTypeName name="basic.User"/>
     <fullyQualifiedTypeName name="basic.XYZ"/>
     <fullyQualifiedTypeName name="basic.ABC"/>
+    <fullyQualifiedTypeName name="basic.B"/>
+    <fullyQualifiedTypeName name="basic.C"/>
+    <fullyQualifiedTypeName name="basic.Electronics"/>
+    <fullyQualifiedTypeName name="basic.Calculate"/>
+    <fullyQualifiedTypeName name="basic.Student"/>
+    <fullyQualifiedTypeName name="basic.SBI"/>
+    <fullyQualifiedTypeName name="basic.PNB"/>
+    <fullyQualifiedTypeName name="basic.Calc"/>
 </qualifiedTypeNameHistroy>

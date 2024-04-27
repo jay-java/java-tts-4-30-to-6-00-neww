@@ -46,10 +46,12 @@ public class P014_Abstration {
 		s.interest();
 		SBI s1 = new SBI();
 		s1.HL();
+		s1.repoRate();
 		s1.interest();
 		PNB p = new PNB();
 		p.HL();
 		p.interest();
+		p.repoRate();
 		SBI.repoRate();
 		PNB.repoRate();
 	}

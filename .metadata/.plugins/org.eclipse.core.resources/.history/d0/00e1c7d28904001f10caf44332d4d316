@@ -1,0 +1,14 @@
+package basic;
+class Data{
+	int i = 1;
+	public void change() {
+		i++;
+		System.out.println(i);
+	}
+}
+public class P017_Final {
+	public static void main(String[] args) {
+		Data d = new Data();
+		d.change();
+	}
+}

@@ -6,6 +6,9 @@ class A{
 	public void call() {
 		System.out.println("call function in A class");
 	}
+	public static void repoRate() {
+		System.out.println("repo Rate : +-4%");
+	}
 }
 class B extends A{
 	public void run() {

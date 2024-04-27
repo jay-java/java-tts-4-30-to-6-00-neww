@@ -31,6 +31,7 @@ public class P013_Overriding {
 	public static void main(String[] args) {
 		Student s = new Student();
 		s.walk();
+		s.walk();
 		s.sleep();
 		s.eat();
 		s.study();

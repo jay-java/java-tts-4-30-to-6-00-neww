@@ -1,0 +1,18 @@
+package basic;
+interface inter1{
+	public void intertface1();
+}
+interface inter2 extends inter1{
+	public void intertface2();
+}
+interface inter3{
+	public void intertface3();
+}
+class InterCall {
+	
+}
+public class P018_Interface {
+	public static void main(String[] args) {
+		
+	}
+}
