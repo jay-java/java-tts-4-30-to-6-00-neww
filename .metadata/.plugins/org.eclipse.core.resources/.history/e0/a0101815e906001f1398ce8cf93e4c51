@@ -1,0 +1,14 @@
+package basic;
+class StudentData{
+	private int id;
+	private String name,address;
+	private long contact;
+	public StudentData() {
+		
+	}
+}
+public class P022_Serailization {
+	public static void main(String[] args) {
+		
+	}
+}

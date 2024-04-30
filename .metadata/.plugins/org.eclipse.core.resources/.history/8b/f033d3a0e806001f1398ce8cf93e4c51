@@ -1,0 +1,10 @@
+package basic;
+
+import java.io.FileWriter;
+
+public class P021_FileWriterAndReader {
+	public static void main(String[] args) {
+		String msg = "this msg will stored into file";
+		FileWriter fr = new FileWriter("t2.txt");
+	}
+}

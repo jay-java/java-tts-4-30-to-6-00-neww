@@ -1,0 +1,9 @@
+package basic;
+
+import java.util.List;
+
+public class P023_List {
+	public static void main(String[] args) {
+		List 
+	}
+}

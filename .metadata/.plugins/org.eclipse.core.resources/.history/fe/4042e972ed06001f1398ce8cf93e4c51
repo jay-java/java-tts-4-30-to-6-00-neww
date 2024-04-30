@@ -1,0 +1,12 @@
+package basic;
+class Employees{
+	private int id;
+	private String name,address;
+	private double salary;
+	private long contact;
+}
+public class P025_ListPractical {
+	public static void main(String[] args) {
+		
+	}
+}
