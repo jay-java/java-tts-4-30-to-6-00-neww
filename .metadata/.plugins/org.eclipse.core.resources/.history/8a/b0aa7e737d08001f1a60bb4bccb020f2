@@ -1,0 +1,10 @@
+package basic;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class P028_Map {
+	public static void main(String[] args) {
+		Map map = new HashMap();
+	}
+}

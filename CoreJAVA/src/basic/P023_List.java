@@ -15,6 +15,7 @@ public class P023_List {
 		list.add(34546565);
 		list.add(1);
 		list.add(34253);
+		list.add(45);
 		System.out.println(list);
 		list.remove(7);
 		System.out.println(list);

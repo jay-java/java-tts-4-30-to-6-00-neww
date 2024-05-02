@@ -1,0 +1,17 @@
+package basic;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class P028_Map {
+	public static void main(String[] args) {
+		Map<Integer,String> map = new HashMap();
+		map.put(1, "c");
+		map.put(2, "c++");
+		map.put("java",3);
+		map.put(false,"python");
+		map.put(12, "php");
+		map.put(null, ".net");
+		System.out.println(map);
+	}
+}

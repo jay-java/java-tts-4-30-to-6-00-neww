@@ -1,0 +1,23 @@
+package basic;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+class SwingDemo{
+	JButton b1,b2,b3,b4;
+	JLabel l1,l2,l3,l4,l5;
+	JTextField t1,t2,t3,t4,t5;
+	SwingDemo(){
+		
+		
+//		l1 = new JLabel("Roll no");
+		
+	}
+}
+
+public class P030_Swing {
+	public static void main(String[] args) {
+		new SWingDemo();
+	}
+}
