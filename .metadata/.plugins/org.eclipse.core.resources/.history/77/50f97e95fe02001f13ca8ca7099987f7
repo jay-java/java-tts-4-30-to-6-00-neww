@@ -1,7 +1,0 @@
-package basic;
-
-public class P015_StaticKeyword {
-	public static void main(String[] args) {
-		
-	}
-}

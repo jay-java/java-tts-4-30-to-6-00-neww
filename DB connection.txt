@@ -1,0 +1,6 @@
+1.XAMPP
+2.MySql connector->maven repository(Search in web)
+	https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.30
+3.Driver load
+4.Connectivity function
+5.insert operation

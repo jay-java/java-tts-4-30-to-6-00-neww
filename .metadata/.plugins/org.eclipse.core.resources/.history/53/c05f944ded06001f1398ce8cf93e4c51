@@ -1,7 +1,0 @@
-package basic;
-
-public class P025_ListPractical {
-	public static void main(String[] args) {
-		
-	}
-}

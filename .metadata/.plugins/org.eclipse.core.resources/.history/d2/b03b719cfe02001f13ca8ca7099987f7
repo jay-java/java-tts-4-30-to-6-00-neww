@@ -1,9 +1,0 @@
-package basic;
-class User{
-	
-}
-public class P015_StaticKeyword {
-	public static void main(String[] args) {
-		
-	}
-}

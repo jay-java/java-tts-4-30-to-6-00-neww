@@ -1,9 +1,0 @@
-package basic;
-class StudentData{
-	
-}
-public class P022_Serailization {
-	public static void main(String[] args) {
-		
-	}
-}

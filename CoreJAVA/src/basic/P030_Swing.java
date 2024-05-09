@@ -1,28 +1,35 @@
 package basic;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-class SwingDemo{
-	JButton b1,b2,b3,b4;
-	JLabel l1,l2,l3,l4,l5;
-	JTextField t1,t2,t3,t4,t5;
-	SwingDemo(){
+class SwingDemo implements ActionListener {
+	JButton b1, b2, b3, b4;
+	JLabel l1, l2, l3, l4, l5;
+	JTextField t1, t2, t3, t4, t5;
+
+	SwingDemo() {
 		JFrame fr = new JFrame("MyApp");
 		fr.setVisible(true);
 		fr.setSize(700, 500);
 		fr.setLayout(null);
-		
+
 		l1 = new JLabel("Id : ");
 		l1.setBounds(100, 100, 120, 20);
 		fr.add(l1);
-		
+
 		l2 = new JLabel("Name : ");
 		l2.setBounds(100, 130, 120, 20);
 		fr.add(l2);
-		
+
 		l3 = new JLabel("Contact : ");
 		l3.setBounds(100, 160, 120, 20);
 		fr.add(l3);
@@ -34,7 +41,7 @@ class SwingDemo{
 		l5 = new JLabel("Email : ");
 		l5.setBounds(100, 220, 120, 20);
 		fr.add(l5);
-		
+
 		t1 = new JTextField();
 		t1.setBounds(200, 100, 120, 20);
 		fr.add(t1);
@@ -50,8 +57,7 @@ class SwingDemo{
 		t5 = new JTextField();
 		t5.setBounds(200, 220, 120, 20);
 		fr.add(t5);
-		
-		
+
 		b1 = new JButton("Insert");
 		b1.setBounds(100, 280, 120, 20);
 		fr.add(b1);
@@ -67,6 +73,62 @@ class SwingDemo{
 		b4 = new JButton("Delete");
 		b4.setBounds(250, 310, 120, 20);
 		fr.add(b4);
+
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+
+	}
+
+	public static Connection createConnection() {
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/swing", "root", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == b1) {
+			System.out.println("insert button clicked");
+			int id = Integer.parseInt(t1.getText());
+			System.out.println(id);
+			String name = t2.getText();
+			System.out.println(name);
+			long contact = Long.parseLong(t3.getText());
+			System.out.println(contact);
+			String address = t4.getText();
+			System.out.println(address);
+			String email = t5.getText();
+			System.out.println(email);
+			try {
+				Connection conn = SwingDemo.createConnection();
+				String sql="insert into user(id,name,contact,address,email) values(?,?,?,?,?)";
+				PreparedStatement pst = conn.prepareStatement(sql);
+				pst.setInt(1, id);
+				pst.setString(2, name);
+				pst.setLong(3, contact);
+				pst.setString(4, address);
+				pst.setString(5, email);
+				pst.executeUpdate();
+				System.out.println("data inserted");
+//				executeUPdate->DML(insert,update,delete)
+//				executeQuery->DQL(select)
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} else if (e.getSource() == b2) {
+			System.out.println("search button clicked");
+		} else if (e.getSource() == b3) {
+			System.out.println("update button clicked");
+		} else if (e.getSource() == b4) {
+			System.out.println("delete button clicked");
+		}
 	}
 }
 

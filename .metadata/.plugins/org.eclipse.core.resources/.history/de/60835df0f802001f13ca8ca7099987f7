@@ -1,7 +1,0 @@
-package basic;
-
-public class P011_Inhritance {
-	public static void main(String[] args) {
-		
-	}
-}

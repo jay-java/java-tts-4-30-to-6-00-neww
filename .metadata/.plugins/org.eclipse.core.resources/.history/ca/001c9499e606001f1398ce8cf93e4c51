@@ -1,7 +1,0 @@
-package basic;
-
-public class P020_FileInputOutputStream {
-	public static void main(String[] args) {
-		
-	}
-}
