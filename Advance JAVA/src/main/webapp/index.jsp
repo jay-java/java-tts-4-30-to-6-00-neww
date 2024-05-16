@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>ADVANCE JAVA</h1>
-	<form action="UserController" method="get">
+	<form action="UserController" method="post">
 		<table>
 			<tr>
 				<td>Name :</td>
