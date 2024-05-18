@@ -52,8 +52,36 @@ public class UserController extends HttpServlet {
 			u.setEmail(request.getParameter("email"));
 			u.setPassword(request.getParameter("password"));
 			System.out.println(u);
-			UserDao.insertUser(u);
-			response.sendRedirect("login.jsp");
+			String email = request.getParameter("email");
+			boolean flag = UserDao.checkEmail(email);
+			System.out.println(flag);
+			if (flag == false) {
+				UserDao.insertUser(u);
+				response.sendRedirect("login.jsp");
+			} else {
+				request.setAttribute("msg", "email already exist");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
+
+		} else if (action.equalsIgnoreCase("login")) {
+			User u = new User();
+			u.setEmail(request.getParameter("email"));
+			u.setPassword(request.getParameter("password"));
+			String email = request.getParameter("email");
+			boolean flag = UserDao.checkEmail(email);
+			if (flag == true) {
+				User u1 = UserDao.userLogin(u);
+				if(u1 == null) {
+					request.setAttribute("msg", "password is incorrect");
+					request.getRequestDispatcher("login.jsp").forward(request, response);
+				}else {
+					response.sendRedirect("home.jsp");
+				}
+			}
+			else {
+				request.setAttribute("msg", "email not exist");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
 		}
 	}
 
