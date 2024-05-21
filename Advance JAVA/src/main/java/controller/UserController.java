@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -71,17 +72,34 @@ public class UserController extends HttpServlet {
 			boolean flag = UserDao.checkEmail(email);
 			if (flag == true) {
 				User u1 = UserDao.userLogin(u);
-				if(u1 == null) {
+				if (u1 == null) {
 					request.setAttribute("msg", "password is incorrect");
 					request.getRequestDispatcher("login.jsp").forward(request, response);
-				}else {
-					response.sendRedirect("home.jsp");
+				} else {
+					HttpSession session = request.getSession();
+					session.setAttribute("data", u1);
+					request.getRequestDispatcher("home.jsp").forward(request, response);
 				}
-			}
-			else {
+			} else {
 				request.setAttribute("msg", "email not exist");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
+		} else if (action.equalsIgnoreCase("edit")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			User u = UserDao.getUserById(id);
+			request.setAttribute("user", u);
+			request.getRequestDispatcher("update.jsp").forward(request, response);
+		}
+		else if(action.equalsIgnoreCase("update")) {
+			User u = new User();
+			u.setId(Integer.parseInt(request.getParameter("id")));
+			u.setName(request.getParameter("name"));
+			u.setContact(Long.parseLong(request.getParameter("contact")));
+			u.setAddress(request.getParameter("address"));
+			u.setEmail(request.getParameter("email"));
+			u.setPassword(request.getParameter("password"));
+			UserDao.updateUser(u);
+			response.sendRedirect("home.jsp");
 		}
 	}
 
