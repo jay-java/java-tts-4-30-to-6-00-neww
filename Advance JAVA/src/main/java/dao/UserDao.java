@@ -10,6 +10,7 @@ import connectivity.DBConnection;
 import model.User;
 
 public class UserDao {
+	
 	public static void insertUser(User u) {
 		try {
 			Connection conn = DBConnection.createConnection();
@@ -122,6 +123,18 @@ public class UserDao {
 			pst.setInt(6, u.getId());
 			pst.executeUpdate();
 			System.out.println("data updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void deleteUser(int id) {
+		try {
+			Connection conn = DBConnection.createConnection();
+			String sql="delete from user where id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			pst.executeUpdate();
+			System.out.println("data deleted");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

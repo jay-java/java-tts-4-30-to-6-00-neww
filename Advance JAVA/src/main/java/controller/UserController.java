@@ -101,6 +101,11 @@ public class UserController extends HttpServlet {
 			UserDao.updateUser(u);
 			response.sendRedirect("home.jsp");
 		}
+		else if(action.equalsIgnoreCase("delete")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			UserDao.deleteUser(id);
+			response.sendRedirect("home.jsp");
+		}
 	}
 
 }

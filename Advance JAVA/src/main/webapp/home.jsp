@@ -17,6 +17,12 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <%
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+  %> 
 	<%
 	User u = null;
 	if (session.getAttribute("data") != null) {
@@ -51,30 +57,40 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%List<User> list = UserDao.getAllUser(); %>
-			<%for(User u1 :list){ %>
+				<%
+				List<User> list = UserDao.getAllUser();
+				%>
+				<%
+				for (User u1 : list) {
+				%>
 				<tr>
-					<td><%=u1.getId() %></td>
-					<td><%=u1.getName() %></td>
-					<td><%=u1.getContact() %></td>
-					<td><%=u1.getAddress() %></td>
-					<td><%=u1.getEmail() %></td>
-					<td><%=u1.getPassword() %></td>
+					<td><%=u1.getId()%></td>
+					<td><%=u1.getName()%></td>
+					<td><%=u1.getContact()%></td>
+					<td><%=u1.getAddress()%></td>
+					<td><%=u1.getEmail()%></td>
+					<td><%=u1.getPassword()%></td>
 					<td>
 						<form action="UserController" method="post">
-						<input type="hidden" name="id" value="<%=u1.getId()%>">
+							<input type="hidden" name="id" value="<%=u1.getId()%>"> 
 							<input type="submit" name="action" value="edit">
 						</form>
 					</td>
-						<td>
-						<form>
+					<td>
+						<form action="UserController" method="post">
+							<input type="hidden" name="id" value="<%=u1.getId()%>"> 
 							<input type="submit" name="action" value="delete">
 						</form>
 					</td>
 				</tr>
-				<%} %>
+				<%
+				}
+				%>
 			</tbody>
 		</table>
+		<div class="text-center">
+			<h1><a href="logout.jsp">Logout</a></h1>
+		</div>
 	</div>
 
 </body>
