@@ -16,25 +16,31 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Seller Login</h3>
+						<%
+						String msg = (String)request.getAttribute("msg");
+						%>
+						<%if(msg!=null){ %>
+							<h2><%out.print(msg); %></h2>
+						<%} %>
 						<form class="row login_form"
-							action="https://preview.colorlib.com/theme/karma/contact_process.php"
+							action="SellerController"
 							method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="name" name="name"
+								<input type="email" class="form-control" id="name" name="email"
 									placeholder="Email" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="name"
+								<input type="password" class="form-control" id="name" name="password"
 									placeholder="Password" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Password'">
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Log
+								<button type="submit" name="action" value="login" class="primary-btn">Log
 									In</button>
-								<a href="#">Forgot Password?</a>
 							</div>
 						</form>
+						<a href="#">Forgot Password?</a>
 					</div>
 				</div>
 			</div>

@@ -33,6 +33,7 @@
 									In</button>
 							</div>
 						</form>
+						<a href="#">Forgot Password?</a>
 					</div>
 				</div>
 			</div>
