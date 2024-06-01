@@ -15,7 +15,7 @@
 				
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Seller Login</h3>
+						<h3>Seller Forgot Password</h3>
 						<%
 						String msg = (String)request.getAttribute("msg");
 						%>
@@ -27,20 +27,13 @@
 							method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="name" name="email"
-									placeholder="Email" onfocus="this.placeholder = ''"
+									placeholder="Enter Email" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password"
-									placeholder="Password" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Password'">
-							</div>
-							<div class="col-md-12 form-group">
-								<button type="submit" name="action" value="login" class="primary-btn">Log
-									In</button>
+								<button type="submit" name="action" value="get otp" class="primary-btn">Get OTP</button>
 							</div>
 						</form>
-						<a href="seller-forgot-password.jsp">Forgot Password?</a>
 					</div>
 				</div>
 			</div>

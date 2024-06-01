@@ -15,7 +15,7 @@
 				
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Seller Login</h3>
+						<h3>Seller Forgot Password</h3>
 						<%
 						String msg = (String)request.getAttribute("msg");
 						%>
@@ -25,22 +25,19 @@
 						<form class="row login_form"
 							action="SellerController"
 							method="post" id="contactForm" novalidate="novalidate">
+							<%String email = (String)request.getAttribute("email"); %>
+							<%int otp  = (Integer)request.getAttribute("otp"); %>
+							<input type="hidden" name="email" value="<%=email%>">
+							<input type="hidden" name="otp1" value="<%=otp%>">
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="name" name="email"
-									placeholder="Email" onfocus="this.placeholder = ''"
+								<input type="email" class="form-control" id="name" name="otp2"
+									placeholder="Enter OTP" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="password"
-									placeholder="Password" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Password'">
-							</div>
-							<div class="col-md-12 form-group">
-								<button type="submit" name="action" value="login" class="primary-btn">Log
-									In</button>
+								<button type="submit" name="action" value="verify" class="primary-btn">Get OTP</button>
 							</div>
 						</form>
-						<a href="seller-forgot-password.jsp">Forgot Password?</a>
 					</div>
 				</div>
 			</div>
