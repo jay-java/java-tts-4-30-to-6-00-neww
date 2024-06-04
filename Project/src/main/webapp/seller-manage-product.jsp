@@ -1,0 +1,70 @@
+<%@page import="dao.ProductDao"%>
+<%@page import="model.Product"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@include file="seller-header.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<br><br><br><br>
+	<section class="cart_area">
+		<div class="container">
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Image</th>
+								<th scope="col">Name</th>
+								<th scope="col">Price</th>
+								<th scope="col">Category</th>
+								<th scope="col">Description</th>
+								<th scope="col">Edit</th>
+								<th scope="col">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+						<%List<Product> list = ProductDao.getProductsListBySid(s1.getId()); %>
+						<%for(Product p :list){ %>
+							<tr>
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src="image/<%=p.getImage()%>" height="100" width="150">
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5><%=p.getPname() %></h5>
+								</td>
+								<td>
+									<h5><%=p.getPprice() %></h5>
+								</td>
+								<td>
+									<h5><%=p.getPcategory()%></h5>
+								</td>
+								<td>
+									<h5><%=p.getPdescription() %></h5>
+								</td>
+								<td>
+									<h5><a href="#" class="btn btn-success">Edit</a></h5>
+								</td>
+								<td>
+									<h5><a href="#" class="btn btn-danger">Delete</a></h5>
+								</td>
+							</tr>
+							<%} %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

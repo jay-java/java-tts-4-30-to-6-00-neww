@@ -3,7 +3,6 @@
 <%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
-
 <head>
 </head>
 <body>
