@@ -52,10 +52,10 @@
 									<h5><%=p.getPdescription() %></h5>
 								</td>
 								<td>
-									<h5><a href="#" class="btn btn-success">Edit</a></h5>
+									<h5><a href="single-product.jsp?pid=<%=p.getPid()%>" class="btn btn-success">Edit</a></h5>
 								</td>
 								<td>
-									<h5><a href="#" class="btn btn-danger">Delete</a></h5>
+									<h5><a href="delete-product.jsp?pid=<%=p.getPid() %>" class="btn btn-danger">Delete</a></h5>
 								</td>
 							</tr>
 							<%} %>

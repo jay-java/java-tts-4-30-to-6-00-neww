@@ -16,20 +16,20 @@
 					<div class="login_form_inner">
 						<h3>Customer Login</h3>
 						<form class="row login_form"
-							action="https://preview.colorlib.com/theme/karma/contact_process.php"
+							action="CustomerController"
 							method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="name" name="name"
+								<input type="email" class="form-control" id="name" name="email"
 									placeholder="Email" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="name"
+								<input type="password" class="form-control" id="name" name="password"
 									placeholder="Password" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Password'">
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Log
+								<button type="submit" name="action" value="login" class="primary-btn">Log
 									In</button>
 								
 							</div>

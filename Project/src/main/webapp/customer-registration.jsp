@@ -17,7 +17,7 @@
 					<div class="login_form_inner">
 						<h3>Customer Registration</h3>
 						<form class="row login_form"
-							action="https://preview.colorlib.com/theme/karma/contact_process.php"
+							action="CustomerController"
 							method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="name" name="name"
@@ -25,27 +25,27 @@
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name"
+								<input type="text" class="form-control" id="name" name="contact"
 									placeholder="Contact" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name"
+								<input type="text" class="form-control" id="name" name="address"
 									placeholder="Address" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="name" name="name"
+								<input type="email" class="form-control" id="name" name="email"
 									placeholder="Email" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="name"
+								<input type="password" class="form-control" id="name" name="password"
 									placeholder="Password" onfocus="this.placeholder = ''"
 									onblur="this.placeholder = 'Password'">
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Register</button>
+								<button type="submit" name="action" value="register" class="primary-btn">Register</button>
 							</div>
 						</form>
 					</div>
