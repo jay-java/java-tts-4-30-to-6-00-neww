@@ -1,9 +1,8 @@
 <%@page import="dao.ProductDao"%>
 <%@page import="model.Product"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@include file="customer-header.jsp" %>
+    <%@include file ="customer-header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<section class="owl-carousel active-product-area section_gap">
+<section class="owl-carousel active-product-area section_gap">
 
 		<div class="single-product-slider">
 			<div class="container">
@@ -23,8 +22,9 @@
 					</div>
 				</div>
 				<div class="row">
-				<%List<Product> list = ProductDao.getAllProducts(); %>
-				<%for(Product p : list){ %>
+				<%List<WishList> list = WishListDao.getWishListByCusId(c.getId()); %>
+				<%for(WishList w : list){ %>
+				<%Product p = ProductDao.getProductByPid(w.getPid()); %>
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<img class="img-fluid" src="image/<%=p.getImage() %>" height="150">
@@ -34,11 +34,9 @@
 									<h6>Rs. <%=p.getPprice() %></h6>
 								</div>
 								<div class="prd-bottom">
-									<a href="addtocart"> <span class="ti-bag"></span>
-										<p class="hover-text">add to bag</p>
-									</a> 
-									<a href="WishListController?action=add&cusid=<%=c.getId()%>&pid=<%=p.getPid()%>"> <span class="lnr lnr-heart"></span>
-										<p class="hover-text">Wishlist</p>
+									
+									<a href="WishListController?action=remove&wid=<%=w.getWid()%>">
+										<p class="hover-text">Remove</p>
 									</a> 
 								</div>
 							</div>
