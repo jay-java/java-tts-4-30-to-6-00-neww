@@ -57,4 +57,22 @@ public class WishListDao {
 			e.printStackTrace();
 		}
 	}
+	public static boolean checkProduct(int pid,int cusid) {
+		boolean flag = false;
+		try {
+			Connection conn = DBConnectivity.createConnection();
+			String sql="select * from wishlist where pid=? and cusid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1,pid);
+			pst.setInt(2, cusid);
+			ResultSet rs = pst.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
 }

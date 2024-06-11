@@ -7,20 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.WishListDao;
-import model.WishList;
+import dao.CartDao;
+import dao.ProductDao;
+import model.Cart;
+import model.Product;
 
 /**
- * Servlet implementation class WishListController
+ * Servlet implementation class CartController
  */
-@WebServlet("/WishListController")
-public class WishListController extends HttpServlet {
+@WebServlet("/CartController")
+public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WishListController() {
+    public CartController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,28 +32,19 @@ public class WishListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
-		System.out.println(action);
-		if(action.equalsIgnoreCase("add")) {
-			WishList w = new WishList();
-			int cusid = Integer.parseInt(request.getParameter("cusid"));
+		if(action.equalsIgnoreCase("addtocart")) {
+			Cart c = new Cart();
 			int pid = Integer.parseInt(request.getParameter("pid"));
-			w.setCusid(Integer.parseInt(request.getParameter("cusid")));
-			w.setPid(Integer.parseInt(request.getParameter("pid")));
-			System.out.println(w);
-			boolean flag  =WishListDao.checkProduct(pid, cusid);
-			if(flag == true) {
-				request.setAttribute("msg", "product already added");
-				request.getRequestDispatcher("customer-home.jsp").forward(request, response);
-			}
-			else {
-				WishListDao.insertIntoWishList(w);
-				response.sendRedirect("customer-home.jsp");
-			}
-		}
-		else if(action.equalsIgnoreCase("remove")) {
-			int wid = Integer.parseInt(request.getParameter("wid"));
-			WishListDao.removeWishLIst(wid);
-			response.sendRedirect("wishlist.jsp");
+			Product p = ProductDao.getProductByPid(pid);
+			c.setCus_id(Integer.parseInt(request.getParameter("cusid")));
+			c.setPid(Integer.parseInt(request.getParameter("pid")));
+			c.setPprice(p.getPprice());
+			c.setQty(1);
+			c.setTotal_price(p.getPprice());
+			c.setSubtotal(p.getPprice());
+			c.setPayment_status("pending");
+			CartDao.insertIntoProduct(c);
+			response.sendRedirect("customer-home.jsp");
 		}
 	}
 

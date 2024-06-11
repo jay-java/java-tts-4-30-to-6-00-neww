@@ -24,6 +24,10 @@
 				</div>
 				<div class="row">
 				<%List<Product> list = ProductDao.getAllProducts(); %>
+				<%String msg = (String)request.getAttribute("msg"); %>
+									<%if(msg!=null){%>
+										<h5><%out.print(msg); %></h5>
+									<%} %>
 				<%for(Product p : list){ %>
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
@@ -34,12 +38,13 @@
 									<h6>Rs. <%=p.getPprice() %></h6>
 								</div>
 								<div class="prd-bottom">
-									<a href="addtocart"> <span class="ti-bag"></span>
+									<a href="CartController?action=addtocart&cusid=<%=c.getId()%>&pid=<%=p.getPid()%>"> <span class="ti-bag"></span>
 										<p class="hover-text">add to bag</p>
 									</a> 
 									<a href="WishListController?action=add&cusid=<%=c.getId()%>&pid=<%=p.getPid()%>"> <span class="lnr lnr-heart"></span>
 										<p class="hover-text">Wishlist</p>
 									</a> 
+									
 								</div>
 							</div>
 						</div>
@@ -245,7 +250,8 @@
 								<div class="prd-bottom">
 									<a href class="social-info"> <span class="ti-bag"></span>
 										<p class="hover-text">add to bag</p>
-									</a> <a href class="social-info"> <span class="lnr lnr-heart"></span>
+									</a> 
+									<a href class="social-info"> <span class="lnr lnr-heart"></span>
 										<p class="hover-text">Wishlist</p>
 									</a> <a href class="social-info"> <span class="lnr lnr-sync"></span>
 										<p class="hover-text">compare</p>
