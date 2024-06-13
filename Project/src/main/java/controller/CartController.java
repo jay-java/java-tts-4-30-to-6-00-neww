@@ -12,9 +12,6 @@ import dao.ProductDao;
 import model.Cart;
 import model.Product;
 
-/**
- * Servlet implementation class CartController
- */
 @WebServlet("/CartController")
 public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -52,8 +49,18 @@ public class CartController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		int cart_id = Integer.parseInt(request.getParameter("cart_id"));
+		int pid = Integer.parseInt(request.getParameter("pid"));
+		int qty = Integer.parseInt(request.getParameter("qty"));
+		int pprice = Integer.parseInt(request.getParameter("pprice"));
+		
+		Cart c = new Cart();
+		c.setCart_id(cart_id);
+		c.setQty(qty);
+		c.setTotal_price(qty*pprice);
+		
+		CartDao.updateCart(c);
+		response.sendRedirect("cart.jsp");
 	}
 
 }

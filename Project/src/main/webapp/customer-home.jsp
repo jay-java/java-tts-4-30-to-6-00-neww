@@ -33,7 +33,7 @@
 						<div class="single-product">
 							<img class="img-fluid" src="image/<%=p.getImage() %>" height="150">
 							<div class="product-details">
-								<h6><%=p.getPname() %></h6>
+								<h6><a href="csingle-product.jsp?pid=<%=p.getPid()%>"><%=p.getPname() %></a></h6>
 								<div class="price">
 									<h6>Rs. <%=p.getPprice() %></h6>
 								</div>

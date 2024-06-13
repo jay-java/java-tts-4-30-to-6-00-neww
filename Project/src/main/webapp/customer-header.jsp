@@ -1,3 +1,5 @@
+<%@page import="dao.CartDao"%>
+<%@page import="model.Cart"%>
 <%@page import="dao.WishListDao"%>
 <%@page import="model.WishList"%>
 <%@page import="java.util.List"%>
@@ -70,7 +72,7 @@ else{
 						id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item active"><a class="nav-link"
-								href="seller-home.jsp">Home</a></li>
+								href="customer-home.jsp">Home</a></li>
 					
 							<li class="nav-item submenu dropdown"><a href="#"
 								class="nav-link dropdown-toggle" data-toggle="dropdown"
@@ -92,9 +94,10 @@ else{
 										href="seller-logout.jsp">Logout</a></li>
 								</ul></li>
 						</ul>
+						<%List<Cart> cart_list = CartDao.getCartListByCusId(c.getId()); %>
 						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="#" class="cart"><span
-									class="ti-bag"></span></a></li>
+							<li class="nav-item"><a href="cart.jsp" class="cart"><span
+									class="ti-bag">  <%out.print(cart_list.size()); %></span></a></li>
 							<li class="nav-item">
 								<button class="search">
 									<span class="lnr lnr-magnifier" id="search"></span>
