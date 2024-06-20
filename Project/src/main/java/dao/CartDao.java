@@ -27,12 +27,15 @@ public class CartDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		finally {
+			
+		}
 	}
 	public static List<Cart> getCartListByCusId(int cusId){
 		List<Cart> list = new ArrayList<Cart>();
 		try {
 			Connection conn = DBConnectivity.createConnection();
-			String sql = "select * from cart where cus_id=?";
+			String sql = "select * from cart where cus_id=? and payment_status='pending'";
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, cusId);
 			ResultSet rs = pst.executeQuery();
@@ -63,6 +66,42 @@ public class CartDao {
 			pst.setInt(3, c.getCart_id());
 			pst.executeUpdate();
 			System.out.println("cart updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static Cart getCartByCusId(int cus_id) {
+		Cart c = null;
+		try {
+			Connection conn = DBConnectivity.createConnection();
+			String sql = "select * from cart where cus_id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, cus_id);
+			ResultSet rs = pst.executeQuery();
+			if(rs.next()) {
+				c = new Cart();
+				c.setCart_id(rs.getInt("cart_id"));
+				c.setCus_id(rs.getInt("cus_id"));
+				c.setPid(rs.getInt("pid"));
+				c.setPprice(rs.getInt("pprice"));
+				c.setQty(rs.getInt("qty"));
+				c.setTotal_price(rs.getInt("total_price"));
+				c.setSubtotal(rs.getInt("subtotal"));
+				c.setPayment_status(rs.getString("payment_status"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	public static void updateStatus(int cart_id) {
+		try {
+			Connection conn = DBConnectivity.createConnection();
+			String sql = "update cart set payment_status='successful' where cart_id=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, cart_id);
+			pst.executeUpdate();
+			System.out.println("status updated");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

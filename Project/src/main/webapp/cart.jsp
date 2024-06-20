@@ -1,8 +1,8 @@
 <%@page import="dao.ProductDao"%>
 <%@page import="model.Product"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@include file="customer-header.jsp" %>
+	pageEncoding="ISO-8859-1"%>
+<%@include file="customer-header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,41 +42,55 @@
 							</tr>
 						</thead>
 						<tbody>
-						<%int net_price =0; %>
-							<%List<Cart> cLIst= CartDao.getCartListByCusId(c.getId()); %>
-							<%for(Cart cart : cLIst){ %>
-							<%Product p = ProductDao.getProductByPid(cart.getPid()); %>
-							<%net_price = net_price+cart.getTotal_price(); %>
+							<%
+							int net_price = 0;
+							%>
+							<%
+							List<Cart> cLIst = CartDao.getCartListByCusId(c.getId());
+							%>
+							<%
+							for (Cart cart : cLIst) {
+							%>
+							<%
+							Product p = ProductDao.getProductByPid(cart.getPid());
+							%>
+							<%
+							net_price = net_price + cart.getTotal_price();
+							%>
 							<tr>
 								<td>
 									<div class="media">
 										<div class="d-flex">
-											<img src="image/<%=p.getImage() %>" height="100" width="100">
+											<img src="image/<%=p.getImage()%>" height="100" width="100">
 										</div>
 										<div class="media-body">
-											<p><%=p.getPname() %></p>
+											<p><%=p.getPname()%></p>
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5><%=p.getPprice() %></h5>
+									<h5><%=p.getPprice()%></h5>
 								</td>
 								<td>
 									<div class="product_count">
 										<form action="CartController" method="post">
-											<input type="hidden" name="cart_id" value="<%=cart.getCart_id()%>">
-											<input type="hidden" name="pid" value="<%=cart.getPid()%>">
-											<input type="hidden" name="pprice" value="<%=cart.getPprice()%>">
-											<input type="number" name="qty" value="<%=cart.getQty()%>" onchange="this.form.submit();">
+											<input type="hidden" name="cart_id"
+												value="<%=cart.getCart_id()%>"> <input type="hidden"
+												name="pid" value="<%=cart.getPid()%>"> <input
+												type="hidden" name="pprice" value="<%=cart.getPprice()%>">
+											<input type="number" name="qty" value="<%=cart.getQty()%>"
+												onchange="this.form.submit();">
 										</form>
 									</div>
 								</td>
 								<td>
-									<h5><%=cart.getTotal_price() %></h5>
+									<h5><%=cart.getTotal_price()%></h5>
 								</td>
 							</tr>
-							<%} %>
-							
+							<%
+							}
+							%>
+
 							<tr>
 								<td></td>
 								<td></td>
@@ -84,10 +98,12 @@
 									<h5>Subtotal</h5>
 								</td>
 								<td>
-									<h5>Rs. <%=net_price %></h5>
+									<h5>
+										Rs.
+										<%=net_price%></h5>
 								</td>
 							</tr>
-							
+
 							<tr class="shipping_area">
 								<td></td>
 								<td></td>
@@ -132,6 +148,37 @@
 							</tr>
 						</tbody>
 					</table>
+					<%
+					Cart c1 = CartDao.getCartByCusId(c.getId());
+					%>
+					<%
+					out.print(c1);
+					%>
+					<form method="post"
+						action="payment.jsp?amount=<%=net_price%>&cid=<%=c1.getCart_id()%>">
+						<table border="1">
+							<tbody>
+								<tr>
+									<th>S.No</th>
+									<th>Label</th>
+									<th>Value</th>
+								</tr>
+
+								<tr>
+									<td>1</td>
+									<td><label>txnAmount*</label></td>
+									<td><input title="TXN_AMOUNT" tabindex="10" type="text"
+										name="TXN_AMOUNT" value="<%=net_price%>"></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td></td>
+									<td><input value="CheckOut" type="submit" onclick=""></td>
+								</tr>
+							</tbody>
+						</table>
+						* - Mandatory Fields
+					</form>
 				</div>
 			</div>
 		</div>
