@@ -27,8 +27,8 @@
 							method="post" id="contactForm" novalidate="novalidate">
 							<%String email = (String)request.getAttribute("email"); %>
 							<%int otp  = (Integer)request.getAttribute("otp"); %>
-							<input type="hidden" name="email" value="<%=email%>">
-							<input type="hidden" name="otp1" value="<%=otp%>">
+							<%-- <input type="hidden" name="email" value="<%=email%>">
+							<input type="hidden" name="otp1" value="<%=otp%>"> --%>
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="name" name="otp2"
 									placeholder="Enter OTP" onfocus="this.placeholder = ''"
