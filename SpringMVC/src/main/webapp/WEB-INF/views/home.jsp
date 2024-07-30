@@ -40,6 +40,8 @@
 					<td>${u.contact }</td>
 					<td>${u.email }</td>
 					<td>${u.password }</td>
+					<td><a href="edit/${u.id }" class="btn btn-success">Edit</a></td>
+					<td><a href="delete/${u.id }" class="btn btn-danger">Delete</a></td>
 				</tr>
 				</c:forEach>
 			</tbody>
