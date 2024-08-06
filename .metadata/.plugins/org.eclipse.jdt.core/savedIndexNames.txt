@@ -36,7 +36,6 @@ INDEX VERSION 1.134+C:\Users\jay-pc\JAVA TTS 4-30 to 6-00 NEW\.metadata\.plugins
 558977086.index
 2791810008.index
 2297738131.index
-2746914624.index
 3619978795.index
 4073222584.index
 3286772195.index
